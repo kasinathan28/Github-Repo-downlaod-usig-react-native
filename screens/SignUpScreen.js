@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     gap: 20,
-    marginBottom: 40,
+    marginBottom: 60,
   },
   signupBtn: {
     width: 40,

@@ -31,12 +31,12 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     marginBottom: "auto",
-    paddingVertical: 60,
+    paddingVertical: 40,
     paddingHorizontal: 30,
     alignItems: "center",
     backgroundColor: "#7da0ca",
-    borderBottomStartRadius: 60,
-    borderBottomEndRadius: 60,
+    borderBottomStartRadius: 40,
+    borderBottomEndRadius: 40,
     gap: 20,
   },
   headerImg: {
