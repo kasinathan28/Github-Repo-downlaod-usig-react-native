@@ -84,6 +84,7 @@ export default function LoginScreen() {
         <TouchableOpacity style={styles.signupOpt}>
           <Image style={styles.signupBtn} source={Github} alt="Github" />
         </TouchableOpacity>
+
       </View>
     </View>
   );
@@ -93,16 +94,16 @@ const styles = StyleSheet.create({
   container: {
     padding: 24,
     flex: 1,
-    backgroundColor: "#021024",
+    backgroundColor: "#021024"
   },
   header: {
     marginVertical: 106,
-    marginBottom: 50,
+    marginBottom: 50
   },
   headerImg: {
     width: 100,
     height: 100,
-    alignSelf: "center",
+    alignSelf: "center"
   },
   title: {
     fontFamily:"LOGO",
@@ -110,14 +111,14 @@ const styles = StyleSheet.create({
     marginBottom: 0,
     marginVertical: 30,
     color: "#c1e8ff",
-    textAlign: "center",
+    textAlign: "center"
   },
   subtitle: {
     fontSize: 20,
     fontFamily: 'Poppins-Thin',
     color: "#7da0ca",
     textAlign: "center",
-    fontWeight: "200",
+    fontWeight: "200"
   },
   welcome: {
     marginBottom: 20,
@@ -129,11 +130,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Regular'
   },
   form: {
-    marginBottom: 50,
+    marginBottom: 50
     
   },
   input: {
-    gap: 10,
+    gap: 10
   },
   inputLabel: {
     fontSize: 22,
@@ -145,10 +146,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#7da0ca",
     paddingVertical: 10,
     paddingHorizontal: 20,
-    borderRadius: 12,
+    borderRadius: 12
   },
   formAction: {
-    marginVertical: 40,
+    marginVertical: 40
   },
   btn: {
     backgroundColor: "#052659",
@@ -157,41 +158,37 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
-    paddingHorizontal: 20,
+    paddingHorizontal: 20
   },
   btnText: {
     fontSize: 20,
     fontFamily: 'Poppins-Regular',
-    color: "#fff",
+    color: "#fff"
   },
   signUpbtnContainer: {
     gap: 20,
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   signup: {
     alignSelf: "center",
-    marginBottom: 24,
+    marginBottom: 24
   },
   signupText: {
     color: "#7da0ca",
     fontWeight: "200",
-    fontFamily: 'Poppins-Thin',
-    fontSize: 18,
+    fontFamily:'Poppins-Regular',
+    fontSize: 18
   },
   signupSub: {
-    fontFamily: 'Poppins-Thin',
-    textDecorationLine: "underline",
-
+    fontFamily: 'Poppins-Regular',
+    textDecorationLine: "underline"
   },
   signupOpt: {
-    flexDirection: "row",
-    justifyContent: "center",
-    gap: 20,
-    marginBottom: 40,
+    marginBottom: 40
   },
   signupBtn: {
     width: 40,
-    height: 40,
-  },
+    height: 40
+  }
 });
