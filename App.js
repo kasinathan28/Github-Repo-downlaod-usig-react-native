@@ -12,14 +12,22 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
     
-    const [fontsLoaded] = useFonts({
-      'Poppins-Thin': require('./assets/fonts/Poppins-Thin.ttf'),
-      'LOGO': require('./assets/fonts/Cinzel-Medium.ttf'),
-      'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
-      'Poppins-SemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
-    });
+  const [fontsLoaded, error] = useFonts({
+    'Poppins-Thin': require('./assets/fonts/Poppins-Thin.ttf'),
+    'LOGO': require('./assets/fonts/Cinzel-Medium.ttf'),
+    'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
+    'Poppins-SemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
+  });
 
-  
+  useEffect(() => {
+    if (error) {
+      console.error('Error loading fonts:', error);
+    }
+  }, [error]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     <NavigationContainer>
       <Stack.Navigator
