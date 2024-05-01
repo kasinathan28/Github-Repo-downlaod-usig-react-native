@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "DEMO",
-    "slug": "DEMO",
+    "name": "Giredo",
+    "slug": "Giredo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,10 +21,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.kasinathan.Giredo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fddd9ee0-1b0d-420c-bfd0-6b432193dbbc"
+      }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

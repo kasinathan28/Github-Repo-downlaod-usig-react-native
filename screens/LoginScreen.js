@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   View,
@@ -9,32 +9,38 @@ import {
   StyleSheet,
   Alert,
 } from "react-native";
-
 import Github from "../assets/github.png";
 import Google from "../assets/google.png";
-
 const Logo = require("../assets/logo.png");
 
 export default function LoginScreen() {
+
   const navigate = useNavigation();
+
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
 
-
   const Login = () => {
     navigate.navigate("Index");
+  };
+
+  const handleSignup = () => {
+    navigate.navigate("Signup");
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Image style={styles.headerImg} source={Logo} alt="Logo" />
-        <Text style={styles.title}>Github Downloader</Text>
-        <Text style={styles.subtitle}>To get the access, please login</Text>
+        <Text style={styles.title}>GI RE DO</Text>
+        <Text style={styles.subtitle}>{"{ Github Repo Downloader }"}</Text>
       </View>
 
+      <View style={styles.welcome}>
+        <Text style={styles.welcomeText}>👋🏻 Welcome Back Dev </Text>
+      </View>
       <View style={styles.form}>
         <View style={styles.input}>
           <Text style={styles.inputLabel}>Email:</Text>
@@ -64,16 +70,21 @@ export default function LoginScreen() {
           </TouchableOpacity>
         </View>
       </View>
-      <TouchableOpacity style={styles.signup}>
+      <TouchableOpacity style={styles.signup} onPress={handleSignup}>
         <Text style={styles.signupText}>
           Don't have an account? <Text style={styles.signupSub}>Signup</Text>
         </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.signupOpt}>
-        <Image style={styles.signupBtn} source={Google} alt="Google" />
-        <Image style={styles.signupBtn} source={Github} alt="Google" />
-      </TouchableOpacity>
+      <View style={styles.signUpbtnContainer}>
+        <TouchableOpacity style={styles.signupOpt}>
+          <Image style={styles.signupBtn} source={Google} alt="Google" />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.signupOpt}>
+          <Image style={styles.signupBtn} source={Github} alt="Github" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -85,7 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#021024",
   },
   header: {
-    marginVertical: 146,
+    marginVertical: 106,
     marginBottom: 50,
   },
   headerImg: {
@@ -94,21 +105,32 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   title: {
+    fontFamily:"LOGO",
     fontSize: 37,
     marginBottom: 0,
     marginVertical: 30,
-    fontWeight: "700",
     color: "#c1e8ff",
     textAlign: "center",
   },
   subtitle: {
     fontSize: 20,
+    fontFamily: 'Poppins-Thin',
     color: "#7da0ca",
     textAlign: "center",
     fontWeight: "200",
   },
+  welcome: {
+    marginBottom: 20,
+    marginTop:10
+  },
+  welcomeText: {
+    color: "#7da0ca",
+    fontSize: 35,
+    fontFamily: 'Poppins-Regular'
+  },
   form: {
     marginBottom: 50,
+    
   },
   input: {
     gap: 10,
@@ -117,6 +139,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: "#7da0ca",
     fontWeight: "200",
+    fontFamily: 'Poppins-Thin'
   },
   inputControl: {
     backgroundColor: "#7da0ca",
@@ -138,8 +161,13 @@ const styles = StyleSheet.create({
   },
   btnText: {
     fontSize: 20,
-    fontWeight: "600",
+    fontFamily: 'Poppins-Regular',
     color: "#fff",
+  },
+  signUpbtnContainer: {
+    gap: 20,
+    flexDirection: "row",
+    justifyContent: "center",
   },
   signup: {
     alignSelf: "center",
@@ -148,10 +176,13 @@ const styles = StyleSheet.create({
   signupText: {
     color: "#7da0ca",
     fontWeight: "200",
+    fontFamily: 'Poppins-Thin',
     fontSize: 18,
   },
   signupSub: {
+    fontFamily: 'Poppins-Thin',
     textDecorationLine: "underline",
+
   },
   signupOpt: {
     flexDirection: "row",
