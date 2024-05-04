@@ -100,12 +100,12 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#021024",
     alignItems: "center",
-    paddingTop: height * 0.05,
-    flexGrow:1
+    height: height ,
+    paddingVertical: width * 0.09,
   },
   header: {
     alignItems: "center",
-    marginVertical: height * 0.04,
+    marginVertical:height * 0.05,
   },
   headerImg: {
     marginBottom: height * 0.02,
@@ -123,7 +123,6 @@ const styles = StyleSheet.create({
     fontWeight: "200",
   },
   welcome: {
-    marginBottom: height * 0.02,
     marginRight: "auto",
     marginHorizontal: width * 0.04,
   },
@@ -135,9 +134,6 @@ const styles = StyleSheet.create({
     marginVertical:height *0.03,
     width: width * 0.9,
     height:"auto",
-  },
-  input: {
-    marginBottom: height * 0.02,
   },
   inputLabel: {
     fontSize: width * 0.04,
@@ -162,10 +158,10 @@ const styles = StyleSheet.create({
     borderRadius: width * 0.01,
     flexDirection: "row",
     justifyContent: "center",
-    paddingVertical: height * 0.015,
+    paddingVertical: height * 0.01,
     paddingHorizontal: width * 0.04,
     alignItems: "center",
-    width: width * 0.9
+    width: width * 0.9,
   },
   btnText: {
     fontSize: width * 0.05,
@@ -176,8 +172,8 @@ const styles = StyleSheet.create({
   SingupContainer: {
     alignItems: "center",
     flexDirection: "column",
-    marginTop: "auto",
     marginBottom: height * 0.05,
+    marginTop:"auto"
   },
 
   signupText: {

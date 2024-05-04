@@ -65,14 +65,14 @@ export default function App() {
     name='Index'
     component={IndexScreen}
     options={{
-      animation: 'slide_from_right', 
+      animation: 'slide_from_left', 
     }}
   />
   <Stack.Screen
     name='Signup'
     component={SignUpScreen}
     options={{
-      animation: 'flip_y', 
+      animation: 'slide_from_bottom',
     }}
   />
 </Stack.Navigator>

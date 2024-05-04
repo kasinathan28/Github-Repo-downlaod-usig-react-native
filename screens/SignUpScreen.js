@@ -88,6 +88,7 @@ export default function SignUpScreen() {
           <Text style={styles.signupButtonText}>Sign Up</Text>
         </TouchableOpacity>
       </View>
+      {/* Bottom Icons */}
       <View style={styles.signInCtn}>
         <TouchableOpacity
           style={styles.signIn}
@@ -119,8 +120,9 @@ const styles = StyleSheet.create({
     padding: width * 0.05,
   },
   first: {
-    marginTop: height * 0.04,
+    // marginTop: height * 0.04,
     alignItems: "center",
+    marginVertical:height * 0.02
   },
   logo: {
     marginBottom: height * 0.02,
@@ -150,76 +152,59 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-Regular",
   },
   formContainer: {
-    gap: height * 0.008,
+    height:"auto"
   },
   inputLabel: {
     fontSize: width * 0.04,
     color: "#7da0ca",
-    fontWeight: "200",
     fontFamily: "Poppins-Thin",
   },
   input: {
     backgroundColor: "#7da0ca",
-    borderRadius: 12,
+    borderRadius: width * 0.02,
     paddingVertical: height * 0.01,
     paddingHorizontal: width * 0.04,
     color: "#fff",
+    marginBottom: height * 0.02,
   },
   signupButton: {
     backgroundColor: "#052659",
-    borderRadius: 8,
+    borderRadius: width * 0.02,
     alignItems: "center",
     justifyContent: "center",
-    padding: height * 0.01,
-    marginVertical: height * 0.03,
+    paddingVertical: height * 0.01,
+    marginTop: height * 0.01,
   },
   signupButtonText: {
     fontFamily: "Poppins-Regular",
     color: "#fff",
     fontSize: width * 0.05,
   },
-
   signInCtn: {
-    marginTop: "auto",
     alignItems: "center",
-    marginBottom: height * 0.02,
+    justifyContent:"center",
     gap: height * 0.01,
+    marginTop:height * 0.1
   },
-
   signIn: {
     color: "#fff",
   },
-
   signInText: {
     fontSize: width * 0.04,
     color: "#7da0ca",
-    fontWeight: "200",
-    fontFamily: "Poppins-Regular",
+    fontFamily: "Poppins-Thin",
   },
   signInTextSub: {
     fontFamily: "Poppins-Regular",
     textDecorationLine: "underline",
   },
-
   signUpbtnContainer: {
-    gap: width * 0.05,
     flexDirection: "row",
-  },
-
-  signup: {
-    marginBottom: height * 0.04,
-  },
-  signupText: {
-    color: "#7da0ca",
-    fontFamily: "Poppins-Thin",
-    fontSize: width * 0.05,
+    gap: width * 0.05,
   },
   signupOpt: {
     flexDirection: "row",
-    justifyContent: "center",
-    gap: width * 0.05,
   },
-
   signupBtn: {
     width: width * 0.1,
     height: width * 0.1,
