@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   View,
@@ -7,14 +7,17 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Alert,
+  ScrollView,
+  StatusBar,
+  Dimensions,
 } from "react-native";
 import Github from "../assets/github.png";
 import Google from "../assets/google.png";
 const Logo = require("../assets/logo.png");
 
-export default function LoginScreen() {
+const { width, height } = Dimensions.get("window");
 
+export default function LoginScreen() {
   const navigate = useNavigation();
 
   const [form, setForm] = useState({
@@ -33,6 +36,7 @@ export default function LoginScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+        <StatusBar backgroundColor={"#021024"} barStyle="default" />
         <Image style={styles.headerImg} source={Logo} alt="Logo" />
         <Text style={styles.title}>GI RE DO</Text>
         <Text style={styles.subtitle}>{"{ Github Repo Downloader }"}</Text>
@@ -41,6 +45,7 @@ export default function LoginScreen() {
       <View style={styles.welcome}>
         <Text style={styles.welcomeText}>👋🏻 Welcome Back Dev </Text>
       </View>
+
       <View style={styles.form}>
         <View style={styles.input}>
           <Text style={styles.inputLabel}>Email:</Text>
@@ -48,7 +53,7 @@ export default function LoginScreen() {
             style={styles.inputControl}
             value={form.email}
             placeholder="example@gmail.com"
-            placeholderColor="#333"
+            placeholderTextColor="#333"
             onChangeText={(email) => setForm({ ...form, email })}
           />
           <Text style={styles.inputLabel}>Password:</Text>
@@ -56,7 +61,7 @@ export default function LoginScreen() {
             secureTextEntry
             style={styles.inputControl}
             placeholder="********"
-            placeholderColor="#333"
+            placeholderTextColor="#333"
             value={form.password}
             onChangeText={(password) => setForm({ ...form, password })}
           />
@@ -70,21 +75,22 @@ export default function LoginScreen() {
           </TouchableOpacity>
         </View>
       </View>
-      <TouchableOpacity style={styles.signup} onPress={handleSignup}>
-        <Text style={styles.signupText}>
-          Don't have an account? <Text style={styles.signupSub}>Signup</Text>
-        </Text>
-      </TouchableOpacity>
-
-      <View style={styles.signUpbtnContainer}>
-        <TouchableOpacity style={styles.signupOpt}>
-          <Image style={styles.signupBtn} source={Google} alt="Google" />
+      <View style={styles.SingupContainer}>
+        <TouchableOpacity style={styles.signup} onPress={handleSignup}>
+          <Text style={styles.signupText}>
+            Don't have an account? <Text style={styles.signupSub}>Signup</Text>
+          </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.signupOpt}>
-          <Image style={styles.signupBtn} source={Github} alt="Github" />
-        </TouchableOpacity>
+        <View style={styles.signUpbtnContainer}>
+          <TouchableOpacity style={styles.signupOpt}>
+            <Image style={styles.signupBtn} source={Google} alt="Google" />
+          </TouchableOpacity>
 
+          <TouchableOpacity style={styles.signupOpt}>
+            <Image style={styles.signupBtn} source={Github} alt="Github" />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -92,103 +98,108 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 24,
-    flex: 1,
-    backgroundColor: "#021024"
+    backgroundColor: "#021024",
+    alignItems: "center",
+    paddingTop: height * 0.05,
+    flexGrow:1
   },
   header: {
-    marginVertical: 106,
-    marginBottom: 50
+    alignItems: "center",
+    marginVertical: height * 0.04,
   },
   headerImg: {
-    width: 100,
-    height: 100,
-    alignSelf: "center"
+    marginBottom: height * 0.02,
+    width: width * 0.2,
+    height: width * 0.2,
   },
   title: {
-    fontFamily:"LOGO",
-    fontSize: 37,
-    marginBottom: 0,
-    marginVertical: 30,
+    fontFamily: "LOGO",
+    fontSize: width * 0.1,
     color: "#c1e8ff",
-    textAlign: "center"
   },
   subtitle: {
-    fontSize: 20,
-    fontFamily: 'Poppins-Thin',
+    fontSize: width * 0.04,
     color: "#7da0ca",
-    textAlign: "center",
-    fontWeight: "200"
+    fontWeight: "200",
   },
   welcome: {
-    marginBottom: 20,
-    marginTop:10
+    marginBottom: height * 0.02,
+    marginRight: "auto",
+    marginHorizontal: width * 0.04,
   },
   welcomeText: {
     color: "#7da0ca",
-    fontSize: 35,
-    fontFamily: 'Poppins-Regular'
+    fontSize: width * 0.07,
   },
   form: {
-    marginBottom: 50
-    
+    marginVertical:height *0.03,
+    width: width * 0.9,
+    height:"auto",
   },
   input: {
-    gap: 10
+    marginBottom: height * 0.02,
   },
   inputLabel: {
-    fontSize: 22,
+    fontSize: width * 0.04,
     color: "#7da0ca",
     fontWeight: "200",
-    fontFamily: 'Poppins-Thin'
+    marginVertical: width * 0.02,
   },
   inputControl: {
     backgroundColor: "#7da0ca",
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 12
+    paddingVertical: height * 0.015,
+    paddingHorizontal: width * 0.04,
+    borderRadius: width * 0.02,
+    fontSize: width * 0.04,
+    marginBottom: height * 0.02,
   },
   formAction: {
-    marginVertical: 40
+    marginVertical: height * 0.02,
+    alignItems: "center",
   },
   btn: {
     backgroundColor: "#052659",
-    borderRadius: 8,
+    borderRadius: width * 0.01,
     flexDirection: "row",
-    alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 20
+    paddingVertical: height * 0.015,
+    paddingHorizontal: width * 0.04,
+    alignItems: "center",
+    width: width * 0.9
   },
   btnText: {
-    fontSize: 20,
-    fontFamily: 'Poppins-Regular',
-    color: "#fff"
+    fontSize: width * 0.05,
+    fontFamily: "Poppins-Regular",
+    color: "#fff",
   },
-  signUpbtnContainer: {
-    gap: 20,
-    flexDirection: "row",
-    justifyContent: "center"
+
+  SingupContainer: {
+    alignItems: "center",
+    flexDirection: "column",
+    marginTop: "auto",
+    marginBottom: height * 0.05,
   },
-  signup: {
-    alignSelf: "center",
-    marginBottom: 24
-  },
+
   signupText: {
+    fontSize: width * 0.04,
     color: "#7da0ca",
-    fontWeight: "200",
-    fontFamily:'Poppins-Regular',
-    fontSize: 18
+    fontFamily: "Poppins-Regular",
+    marginVertical: height * 0.02,
   },
   signupSub: {
-    fontFamily: 'Poppins-Regular',
-    textDecorationLine: "underline"
+    textDecorationLine: "underline",
+  },
+  signUpbtnContainer: {
+    width: width *1,
+    flexDirection: "row",
+    gap: width * 0.04,
+    justifyContent:"center"
   },
   signupOpt: {
-    marginBottom: 40
+    flexDirection: "row",
   },
   signupBtn: {
-    width: 40,
-    height: 40
-  }
+    width: width * 0.09,
+    height: width * 0.09,
+  },
 });

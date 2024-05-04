@@ -6,14 +6,18 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
-  ToastAndroid
+  ToastAndroid,
+  Dimensions,
+  StatusBar,
 } from "react-native";
 import Logo from "../assets/logo.png";
 import { useNavigation } from "@react-navigation/native";
 import Github from "../assets/github.png";
 import Google from "../assets/google.png";
-export default function SignUpScreen() {
 
+const { width, height } = Dimensions.get("window");
+
+export default function SignUpScreen() {
   const navigate = useNavigation();
 
   const [formData, setFormData] = useState({
@@ -30,7 +34,7 @@ export default function SignUpScreen() {
   };
 
   const handleSubmit = () => {
-    if(formData.password !== formData.confirmPassword) {
+    if (formData.password !== formData.confirmPassword) {
       showToast("Passwords do not match");
       return;
     }
@@ -41,10 +45,10 @@ export default function SignUpScreen() {
   const showToast = (message) => {
     ToastAndroid.show(message, ToastAndroid.SHORT);
   };
-  
 
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor={"#021024"} barStyle="default" />
       <View style={styles.first}>
         <Image style={styles.logo} source={Logo} />
         <Text style={styles.title}>GI RE DO</Text>
@@ -80,10 +84,7 @@ export default function SignUpScreen() {
           value={formData.confirmPassword}
           secureTextEntry
         />
-        <TouchableOpacity
-          style={styles.signupButton}
-          onPress={handleSubmit}
-        >
+        <TouchableOpacity style={styles.signupButton} onPress={handleSubmit}>
           <Text style={styles.signupButtonText}>Sign Up</Text>
         </TouchableOpacity>
       </View>
@@ -97,15 +98,15 @@ export default function SignUpScreen() {
             <Text style={styles.signInTextSub}>Login</Text>
           </Text>
         </TouchableOpacity>
-      </View>
-      <View style={styles.signUpbtnContainer}>
-        <TouchableOpacity style={styles.signupOpt}>
-          <Image style={styles.signupBtn} source={Google} alt="Google" />
-        </TouchableOpacity>
+        <View style={styles.signUpbtnContainer}>
+          <TouchableOpacity style={styles.signupOpt}>
+            <Image style={styles.signupBtn} source={Google} alt="Google" />
+          </TouchableOpacity>
 
-        <TouchableOpacity style={styles.signupOpt}>
-          <Image style={styles.signupBtn} source={Github} alt="Github" />
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.signupOpt}>
+            <Image style={styles.signupBtn} source={Github} alt="Github" />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -115,44 +116,44 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#021024",
-    padding: 20,
+    padding: width * 0.05,
   },
   first: {
-    marginTop: 100,
+    marginTop: height * 0.04,
     alignItems: "center",
   },
   logo: {
-    marginBottom: 20,
-    width: 100,
-    height: 100,
+    marginBottom: height * 0.02,
+    width: width * 0.2,
+    height: width * 0.2,
   },
   title: {
     fontFamily: "LOGO",
-    fontSize: 37,
-    marginTop: 10,
+    fontSize: width * 0.1,
+    marginTop: height * 0.01,
     color: "#c1e8ff",
   },
   subtitle: {
-    fontSize: 20,
-    fontFamily: 'Poppins-Thin',
+    fontSize: width * 0.04,
+    fontFamily: "Poppins-Regular",
     color: "#7da0ca",
     textAlign: "center",
     fontWeight: "200",
   },
   welcome: {
-    marginVertical: 40,
-    marginBottom: 20,
+    marginVertical: height * 0.02,
+    marginBottom: height * 0.01,
   },
   welcomeText: {
     color: "#7da0ca",
-    fontSize: 35,
-    fontFamily: 'Poppins-Regular',
+    fontSize: width * 0.07,
+    fontFamily: "Poppins-Regular",
   },
   formContainer: {
-    gap: 8,
+    gap: height * 0.008,
   },
   inputLabel: {
-    fontSize: 22,
+    fontSize: width * 0.04,
     color: "#7da0ca",
     fontWeight: "200",
     fontFamily: "Poppins-Thin",
@@ -160,8 +161,8 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "#7da0ca",
     borderRadius: 12,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: height * 0.01,
+    paddingHorizontal: width * 0.04,
     color: "#fff",
   },
   signupButton: {
@@ -169,61 +170,58 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
-    padding: 15,
-    marginVertical: 20,
+    padding: height * 0.01,
+    marginVertical: height * 0.03,
   },
   signupButtonText: {
-    fontFamily: 'Poppins-Regular',
+    fontFamily: "Poppins-Regular",
     color: "#fff",
-    fontSize: 20,
+    fontSize: width * 0.05,
   },
+
   signInCtn: {
-    flex: 1,
+    marginTop: "auto",
     alignItems: "center",
+    marginBottom: height * 0.02,
+    gap: height * 0.01,
   },
+
   signIn: {
-    marginTop: 40,
     color: "#fff",
   },
+
   signInText: {
-    fontSize: 18,
+    fontSize: width * 0.04,
     color: "#7da0ca",
     fontWeight: "200",
-    fontFamily: 'Poppins-Regular'
+    fontFamily: "Poppins-Regular",
   },
   signInTextSub: {
-    fontFamily:'Poppins-Regular',
+    fontFamily: "Poppins-Regular",
     textDecorationLine: "underline",
   },
-  
+
   signUpbtnContainer: {
-    gap: 20,
+    gap: width * 0.05,
     flexDirection: "row",
-    justifyContent: "center",
   },
+
   signup: {
-    alignSelf: "center",
-    marginBottom: 24,
+    marginBottom: height * 0.04,
   },
   signupText: {
     color: "#7da0ca",
-    fontWeight: "200",
-    fontFamily: 'Poppins-Thin',
-    fontSize: 18,
-  },
-  signupSub: {
-    fontFamily: 'Poppins-Regular',
-    textDecorationLine: "underline",
-
+    fontFamily: "Poppins-Thin",
+    fontSize: width * 0.05,
   },
   signupOpt: {
     flexDirection: "row",
     justifyContent: "center",
-    gap: 20,
-    marginBottom: 60,
+    gap: width * 0.05,
   },
+
   signupBtn: {
-    width: 40,
-    height: 40,
+    width: width * 0.1,
+    height: width * 0.1,
   },
 });
