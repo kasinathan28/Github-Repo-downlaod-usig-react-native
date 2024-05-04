@@ -4,6 +4,7 @@ import LottieView from "lottie-react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "react-native";
 import { rotate } from "@shopify/react-native-skia";
+import { height } from "../App";
 
 const Arrow = require("../assets/ArrowAnimation.json");
 
@@ -11,7 +12,7 @@ export default function OnBoard2() {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate("Login");
+    navigation.navigate("Index");
   };
 
   return (
@@ -26,8 +27,7 @@ export default function OnBoard2() {
         />
       </View>
       <View style={styles.onboardTextCtn}>
-        <Text style={styles.onboardText}>Welcome to</Text>
-        <Text style={styles.Title}>Gi RE DO</Text> 
+        <Text style={styles.onboardText}>Lets's get started</Text>
         <Text style={styles.subTitle}>Copy the URL of the GitHub Repo {"\n"} and paste it in the URL field</Text>
       </View>
       <TouchableOpacity onPress={handlePress}>
@@ -50,9 +50,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#021024",
     alignItems: "center",
-    justifyContent: "space-between",
-    paddingTop: 30,
-    paddingBottom: 50,
+    paddingVertical:height *0.1,
+    gap: height * 0.1
   },
   AnimationCtn: {
     width: "80%",

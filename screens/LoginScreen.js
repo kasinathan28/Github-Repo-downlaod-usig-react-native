@@ -26,7 +26,7 @@ export default function LoginScreen() {
   });
 
   const Login = () => {
-    navigate.navigate("Index");
+    navigate.navigate("OnBoard2");
   };
 
   const handleSignup = () => {

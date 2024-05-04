@@ -11,7 +11,7 @@ export default function OnBoard1() {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate("OnBoard2");
+    navigation.navigate("Login");
   };
 
   return (
@@ -49,7 +49,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#021024",
     alignItems: "center",
-    justifyContent:"space-around"
+    justifyContent:"space-between",
+    paddingVertical:height *0.1
+
   },
   animationContainer: {
     backgroundColor:"#7da0ca",
